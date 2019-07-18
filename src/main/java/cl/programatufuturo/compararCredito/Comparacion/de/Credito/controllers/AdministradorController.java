@@ -11,14 +11,14 @@ import cl.programatufuturo.compararCredito.Comparacion.de.Credito.models.Reporte
 @RequestMapping( value = "/api/administrador" )
 public class AdministradorController {
 	
-//	@GetMapping
-//	public Administrador login( Administrador admin ) {
-//		return null;
-//	}
-//	
+	@GetMapping
+	public Administrador login( Administrador admin ) {
+		return null;
+	}
+	
 //	@GetMapping
 //	public Reportes report( Reportes report ) {
 //		return null;
 //	}
-//	
+	
 }

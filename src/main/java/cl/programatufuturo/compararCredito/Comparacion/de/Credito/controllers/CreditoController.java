@@ -21,24 +21,24 @@ public class CreditoController {
 		return null;
 	}
 	
-//	@DeleteMapping
-//	public Credit deletecredit( Credit credito) {
-//		return null;
-//	}
-//	
-//	@GetMapping
-//	public Credit comparecredit( Credit firstcredit, Credit secondcredit) {
-//		return null;
-//	}
-//
-//	@GetMapping
-//	public Credit simulation( Credit credito) {
-//		return null;
-//	}
-//	
-//	@PutMapping
-//	public Credit editcredit( Credit credito) {
-//		return null;
-//	}
+	@DeleteMapping
+	public Credit deletecredit( Credit credito) {
+		return null;
+	}
+	
+	@GetMapping("compare")
+	public Credit comparecredit( Credit firstcredit, Credit secondcredit) {
+		return null;
+	}
+
+	@GetMapping("simulations")
+	public Credit simulation( Credit credito) {
+		return null;
+	}
+	
+	@PutMapping
+	public Credit editcredit( Credit credito) {
+		return null;
+	}
 
 }
