@@ -17,5 +17,51 @@ public class Credit {
 		this.banco = banco;
 		this.tipodecredito = tipodecredito;
 	}
+
+	public int getMonto() {
+		return monto;
+	}
+
+	public void setMonto(int monto) {
+		this.monto = monto;
+	}
+
+	public int getCuotas() {
+		return cuotas;
+	}
+
+	public void setCuotas(int cuotas) {
+		this.cuotas = cuotas;
+	}
+
+	public int getPlazos() {
+		return plazos;
+	}
+
+	public void setPlazos(int plazos) {
+		this.plazos = plazos;
+	}
+
+	public String getBanco() {
+		return banco;
+	}
+
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
+
+	public String getTipodecredito() {
+		return tipodecredito;
+	}
+
+	public void setTipodecredito(String tipodecredito) {
+		this.tipodecredito = tipodecredito;
+	}
+
+	@Override
+	public String toString() {
+		return "Credit [monto=" + monto + ", cuotas=" + cuotas + ", plazos=" + plazos + ", banco=" + banco
+				+ ", tipodecredito=" + tipodecredito + "]";
+	}
 	
 }

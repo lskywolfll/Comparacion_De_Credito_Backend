@@ -91,5 +91,12 @@ public class User {
 	public void setRenta(int renta) {
 		this.renta = renta;
 	}
+
+	@Override
+	public String toString() {
+		return "User [nombre=" + nombre + ", apellido=" + apellido + ", password=" + password + ", rut=" + rut
+				+ ", fecha_de_nacimiento=" + fecha_de_nacimiento + ", genero=" + genero + ", correo=" + correo
+				+ ", renta=" + renta + "]";
+	}
 	
 }

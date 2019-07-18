@@ -8,20 +8,39 @@ public class Reportes {
 	
 	public Reportes(){}
 	
-	public Reportes(String tipodereporte) {
-		this.tipodereporte = tipodereporte;
-	}
-
-	public Reportes(String tipodereporte,int id) {
-		this.tipodereporte = tipodereporte;
-		this.id = id;
-	}
-	
 	public Reportes(String tipodereportes,int id,String comentario) {
 		this.tipodereporte = tipodereportes;
 		this.id = id;
 		this.comentario = comentario;
 	}
-	
+
+	public String getTipodereporte() {
+		return tipodereporte;
+	}
+
+	public void setTipodereporte(String tipodereporte) {
+		this.tipodereporte = tipodereporte;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+
+	@Override
+	public String toString() {
+		return "Reportes [tipodereporte=" + tipodereporte + ", id=" + id + ", comentario=" + comentario + "]";
+	}
 	
 }

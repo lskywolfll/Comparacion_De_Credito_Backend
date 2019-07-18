@@ -1,29 +1,34 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.controllers;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.web.bind.annotation.Request
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.models.Credit;
 
-@Controller
-@RequestMapping( value = "/api/creditos " )
+@RestController
+@RequestMapping("/api/creditos")
 public class CreditoController {
 
-	@GetMapping
-	public Credit addcredit( Credit credito ) {
-		return null;
+	@PostMapping("createCredit")
+	public Credit addcredit(@RequestBody Credit credito ) {
+		return credito;
 	}
 	
-	@DeleteMapping
-	public Credit deletecredit( Credit credito) {
-		return null;
+	//Testear
+	@DeleteMapping("deleteCredit")
+	public int deletecredit(@RequestParam int id) {
+		return id;
 	}
 	
 	@GetMapping("compare")
@@ -32,13 +37,13 @@ public class CreditoController {
 	}
 
 	@GetMapping("simulations")
-	public Credit simulation( Credit credito) {
-		return null;
+	public Credit simulation(@RequestBody Credit credito) {
+		return credito;
 	}
 	
-	@PutMapping
-	public Credit editcredit( Credit credito) {
-		return null;
+	@PutMapping("editCredit")
+	public Credit editcredit(@RequestBody Credit credito) {
+		return credito;
 	}
 
 }
