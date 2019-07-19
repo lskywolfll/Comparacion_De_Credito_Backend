@@ -1,4 +1,4 @@
-package Entity;
+package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
