@@ -1,6 +1,5 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.models;
 
-import java.util.Date;
 
 public class User {
 	
