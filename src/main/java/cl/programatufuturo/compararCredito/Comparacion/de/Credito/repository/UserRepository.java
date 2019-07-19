@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.UserEntity;
 
 @Repository
-@Table(name = "user")
+@Table(name = "users")
 public interface UserRepository extends JpaRepository<UserEntity, Long>{
 	//metodos
 }
