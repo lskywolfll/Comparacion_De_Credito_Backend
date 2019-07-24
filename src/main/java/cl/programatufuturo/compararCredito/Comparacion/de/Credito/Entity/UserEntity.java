@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "users")
-@NamedQuery(name = "users.findByIdentificacion", query = "Select u from UserEntity u where u.rut = ?1")
+@NamedQuery(name = "UserEntity.findByIdentificacion", query = "Select u from UserEntity u where u.rut = ?1")
 public class UserEntity {
 	@Id
 	@Column

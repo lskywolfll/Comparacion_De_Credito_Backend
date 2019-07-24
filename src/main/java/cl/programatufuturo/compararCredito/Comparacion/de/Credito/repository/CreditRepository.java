@@ -12,6 +12,6 @@ import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.CreditE
 @Repository
 public interface CreditRepository extends JpaRepository<CreditEntity, Long>{
 	//Metodos para la base de datos
-	@Query("Select c from CreditEntity c where c.banco =:?1")
-	public List<CreditEntity> find();
+//	@Query("Select c from CreditEntity c where c.banco =:bancoinicio and c.banco =:bancosegundo")
+//	public List<CreditEntity> find();
 }

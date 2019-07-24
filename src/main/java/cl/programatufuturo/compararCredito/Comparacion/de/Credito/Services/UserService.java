@@ -1,6 +1,7 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Services;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.UserEntity;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.repository.UserRepository;
@@ -9,13 +10,16 @@ import cl.programatufuturo.compararCredito.Comparacion.de.Credito.repository.Use
  * Clase para definir los servicios de usuario
  * @author renea
  *
+ *NT:Transactional de spring -> cuando nosotros tenemos algunas @Transactional pero queremos hacerlas todas
+ *entonces en ese caso nos viene bien usar una al inicio y dejar de solamente lectura a las que no tengan el transactional :)
  */
+//@Transactional(readOnly = true)
 @Service
 public class UserService {
 	private final UserRepository repoUser;
 	
-	public UserService(UserRepository user) {
-		this.repoUser = user;
+	public UserService(UserRepository repoUser) {
+		this.repoUser = repoUser;
 	}
 	
 	/**
@@ -23,6 +27,7 @@ public class UserService {
 	 * @param user
 	 * @return
 	 */
+	@Transactional
 	public UserEntity create(UserEntity user) {
 		return this.repoUser.save(user);
 	}
@@ -31,6 +36,7 @@ public class UserService {
 	 * @param user
 	 * @return
 	 */
+	@Transactional
 	public UserEntity update(UserEntity user) {
 		return this.repoUser.save(user);
 	}
@@ -38,6 +44,7 @@ public class UserService {
 	 * Metodo para eliminar un usuario
 	 * @param user
 	 */
+	@Transactional
 	public void delete(UserEntity user) {
 		this.repoUser.delete(user);
 	}

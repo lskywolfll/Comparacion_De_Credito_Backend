@@ -1,15 +1,12 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.LoginEntity;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.models.Login;
-import cl.programatufuturo.compararCredito.Comparacion.de.Credito.repository.LoginRepository;
 
 @RestController
 @RequestMapping("api/login")
