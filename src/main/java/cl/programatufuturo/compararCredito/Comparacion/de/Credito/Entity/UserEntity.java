@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "users")
@@ -30,7 +32,8 @@ public class UserEntity {
 	private String rut;
 //	private Date fecha_de_nacimiento;
 	@Column
-	private String fecha_de_nacimiento;
+	@Temporal(TemporalType.DATE)
+	private Date fecha_de_nacimiento;
 	@Column
 	private String genero;
 	@Column
@@ -40,7 +43,7 @@ public class UserEntity {
 	
 	public UserEntity(){}
 	
-	public UserEntity(String nombre, String apellido, String password, String rut, String fecha_de_nacimiento,
+	public UserEntity(String nombre, String apellido, String password, String rut, Date fecha_de_nacimiento,
 			String genero, String correo, int sueldo_bruto) {
 		super();
 		this.nombre = nombre;
@@ -93,11 +96,11 @@ public class UserEntity {
 		this.rut = rut;
 	}
 
-	public String getFecha_de_nacimiento() {
+	public Date getFecha_de_nacimiento() {
 		return fecha_de_nacimiento;
 	}
 
-	public void setFecha_de_nacimiento(String fecha_de_nacimiento) {
+	public void setFecha_de_nacimiento(Date fecha_de_nacimiento) {
 		this.fecha_de_nacimiento = fecha_de_nacimiento;
 	}
 
