@@ -26,12 +26,12 @@ public class CreditoController {
 	
 	//Testear
 	@DeleteMapping("deleteCredit")
-	public int deletecredit(@RequestParam int id) {
+	public int deletecredit(@RequestBody int id) {
 		return id;
 	}
 	
 	@GetMapping("compare")
-	public Credit comparecredit( Credit firstcredit, Credit secondcredit) {
+	public Credit comparecredit(@RequestBody Credit firstcredit,@RequestBody Credit secondcredit) {
 		return null;
 	}
 

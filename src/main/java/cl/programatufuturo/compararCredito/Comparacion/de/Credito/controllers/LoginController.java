@@ -15,18 +15,19 @@ import cl.programatufuturo.compararCredito.Comparacion.de.Credito.repository.Log
 @RequestMapping("api/login")
 public class LoginController {
 
-	@Autowired
-	private LoginRepository repo;
+//	Aqui deberia ir los servicios para hacer las validaciones de los datos
+//	@Autowired
+//	private LoginRepository repo;
 	
 	//Datos sensibles entonces se hacen por post en vez del get, get se usa mayorment en datos que no afecten realmente en cosas senbiles de nuestro usuario
 	@PostMapping("User")
-	public LoginEntity user(@RequestBody LoginEntity user){
+	public Login user(@RequestBody Login user){
 		System.out.println("Login de usuario: " + user);
 		return user;
 	}
 	
 	@GetMapping("administracion")
-	public LoginEntity administracion(@RequestBody LoginEntity administracion) {
+	public Login administracion(@RequestBody Login administracion) {
 		//NT: Crear login con el administrador y el ejecutivo
 		System.out.println("Login de ejecutivo o administrador:" + administracion);
 		return administracion; 

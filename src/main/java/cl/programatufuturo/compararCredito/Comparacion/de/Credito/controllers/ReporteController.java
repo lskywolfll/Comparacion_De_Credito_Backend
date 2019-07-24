@@ -48,4 +48,5 @@ public class ReporteController {
 //	public Reportes info(  @PathVariable("id") int idreporte) {
 //		return new Reportes("test",1,"prueba");
 //	}
+	
 }

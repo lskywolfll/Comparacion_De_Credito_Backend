@@ -2,28 +2,40 @@ package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
+@NamedQuery(name = "users.findByIdentificacion", query = "Select u from UserEntity u where u.rut = ?1")
 public class UserEntity {
 	@Id
+	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	
 //Propiedades necesarias para crear un usuario en la base de datos
+	@Column
 	private String nombre;
+	@Column
 	private String apellido;
+	@Column
 	private String password;
+	@Column
 	private String rut;
 //	private Date fecha_de_nacimiento;
+	@Column
 	private String fecha_de_nacimiento;
+	@Column
 	private String genero;
+	@Column
 	private String correo;
+	@Column
 	private int sueldo_bruto;
 	
 	public UserEntity(){}

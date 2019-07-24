@@ -1,5 +1,6 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +12,14 @@ import javax.persistence.Table;
 public class ReportesEntity {
 	
 	@Id
+	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	long identificador;
-	
+	private long identificador;
+	@Column
 	private String tipodereporte;
+	@Column
 	private int id;
+	@Column
 	private String comentario;
 	
 	public ReportesEntity() {}

@@ -1,5 +1,6 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,14 +12,19 @@ import javax.persistence.Table;
 public class CreditEntity {
 	
 	@Id
+	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	long id;
-	
+	private long id;
+	@Column
 	private int monto;
+	@Column
 	private int cuotas;
 //	private double intereses;
+	@Column
 	private int plazos;
+	@Column
 	private String banco;
+	@Column
 	private String tipodecredito;
 	
 	public CreditEntity(){}

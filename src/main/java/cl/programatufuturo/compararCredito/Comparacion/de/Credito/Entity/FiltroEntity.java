@@ -1,5 +1,6 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +12,10 @@ import javax.persistence.Table;
 public class FiltroEntity {
 	
 	@Id
+	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	long id;
-	
+	private long id;
+	@Column
 	private String tipo_de_reporte;
 	
 	public FiltroEntity() {}

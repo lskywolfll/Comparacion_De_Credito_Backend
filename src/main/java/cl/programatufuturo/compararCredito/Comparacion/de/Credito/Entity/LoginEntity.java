@@ -1,5 +1,6 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,12 +10,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "login")
 public class LoginEntity {
-	
+//	Creditos al grupo 1, Gracias al juan
 	@Id
+	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	long id;
-	
+	private long id;
+	@Column
 	private String entrada;
+	@Column
 	private String password;
 	
 	public LoginEntity(){}
