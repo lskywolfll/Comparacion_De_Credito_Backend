@@ -13,7 +13,7 @@ import cl.programatufuturo.compararCredito.Comparacion.de.Credito.repository.Use
  *NT:Transactional de spring -> cuando nosotros tenemos algunas @Transactional pero queremos hacerlas todas
  *entonces en ese caso nos viene bien usar una al inicio y dejar de solamente lectura a las que no tengan el transactional :)
  */
-//@Transactional(readOnly = true)
+//@Transactional(readOnly = true) -> establece que todos los que no tienen el transactional sean simplemente de lectura de datos, sin poder cambiar algo en la base de datos
 @Service
 public class UserService {
 	private final UserRepository repoUser;
@@ -23,7 +23,7 @@ public class UserService {
 	}
 	
 	/**
-	 * Metodo para guardar un usuario
+	 * Metodo para guardar un usuario, osea no tendria un id para que ya que seria nuevo
 	 * @param user
 	 * @return
 	 */
@@ -32,7 +32,7 @@ public class UserService {
 		return this.repoUser.save(user);
 	}
 	/**
-	 * Metodo para realizar la operacion de actualizar un cliente
+	 * Metodo para realizar la operacion de actualizar un cliente por ende ya posee un id y actualiza simplemente el contenido
 	 * @param user
 	 * @return
 	 */
@@ -53,7 +53,6 @@ public class UserService {
 	 * @param rut
 	 * @return
 	 */
-	//verificar si existe, no puedo modificar,eliminar,crear(recibir datos) ok
 	public UserEntity findByIdentificacion(String rut) {
 		return this.repoUser.findByIdentificacion(rut);
 	}
