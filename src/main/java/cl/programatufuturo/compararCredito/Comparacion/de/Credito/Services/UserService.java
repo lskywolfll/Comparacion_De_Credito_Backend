@@ -53,6 +53,7 @@ public class UserService {
 	 * @param rut
 	 * @return
 	 */
+	//verificar si existe, no puedo modificar,eliminar,crear(recibir datos) ok
 	public UserEntity findByIdentificacion(String rut) {
 		return this.repoUser.findByIdentificacion(rut);
 	}
