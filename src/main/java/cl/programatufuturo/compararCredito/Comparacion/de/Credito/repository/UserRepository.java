@@ -20,9 +20,24 @@ public interface UserRepository extends JpaRepository<UserEntity, Long>{
 	 * @return
 	 */
 	public UserEntity findByCorreo(String correo);
-	public UserEntity findByRut(String rut);
 	//List of values use List<ObjectEntity>
-	public List<UserEntity> findByNombre(String nombre);
-	
+	/**
+	 * Metodo para encontar una lista de usuarios con un nombre
+	 * @param nombre
+	 * @return
+	 */
+	public List<UserEntity> findByListNombre(String nombre);
+	/**
+	 * Metodo para encontrar por la identificacion que seria en este caso el rut
+	 * @param rut
+	 * @return
+	 */
 	public UserEntity findByIdentificacion(String rut);
+	/**
+	 * Metodo para ingresar a la pagina,logearse'
+	 * @param correo
+	 * @param password
+	 * @return
+	 */
+	public UserEntity findByLogin(String correo, String password);
 }

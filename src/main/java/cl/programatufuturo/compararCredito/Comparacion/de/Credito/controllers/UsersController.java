@@ -1,9 +1,12 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,7 +48,7 @@ public class UsersController {
 	
 	//testear
 	@PutMapping("{rut}")
-	public ResponseEntity<UserEntity> update(@PathVariable("rut") String rut,User user){
+	public ResponseEntity<UserEntity> update(@PathVariable("rut") String rut, @RequestBody User user){
 		UserEntity usuario = this.repo.findByIdentificacion(rut);
 		
 		if(usuario  == null) {
@@ -65,5 +68,34 @@ public class UsersController {
 		return new ResponseEntity<>(this.repo.update(usuario), HttpStatus.OK);
 	}
 	
-	
+	@PostMapping("login")
+	public ResponseEntity<UserEntity> login(String correo,String password){
+		UserEntity verificador = this.repo.login(correo, password);
+		if(verificador == null) {
+			return new ResponseEntity<UserEntity>(HttpStatus.NOT_ACCEPTABLE);
+		}else {
+			System.out.println("Correo:" + correo + "password" + password);
+		}
+		
+		return new ResponseEntity<>(this.repo.login(correo, password),HttpStatus.OK);
+	}
+	/**
+	 * Metodo para eliminar un usuario
+	 * @param identificacion
+	 */
+	@DeleteMapping("{indetificacion}")
+	public void delete(@PathVariable("identificacion") String identificacion) {
+		UserEntity user = this.repo.findByIdentificacion(identificacion);
+		if(user != null) {
+			this.repo.delete(user);
+		}
+	}
+	/**
+	 * Metodo para recibir una lista de usuarios
+	 * @return
+	 */
+	@GetMapping("lista")
+	public ResponseEntity<List<UserEntity>> findAll(){
+		return ResponseEntity.ok(this.repo.findAll());
+	}
 }

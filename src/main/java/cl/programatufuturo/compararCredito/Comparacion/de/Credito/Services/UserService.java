@@ -1,5 +1,9 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Services;
 
+import java.util.List;
+
+import javax.management.RuntimeErrorException;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,5 +60,25 @@ public class UserService {
 	public UserEntity findByIdentificacion(String rut) {
 		return this.repoUser.findByIdentificacion(rut);
 	}
-	//Login falta
+	/**
+	 * Metodo para logearse el usuario
+	 * @param correo
+	 * @param password
+	 * @return
+	 */
+	public UserEntity login(String correo, String password) {
+		UserEntity verificacion = this.repoUser.findByLogin(correo, password);
+		if(null == verificacion) {
+			throw new RuntimeException("error");
+		}
+		return this.repoUser.findByLogin(correo, password);
+	}
+	/**
+	 * Metodo para recibir una lista de usuarios hola rene te quiero mucho :3
+	 * @return
+	 */
+	public List<UserEntity> findAll(){
+		return this.repoUser.findAll();
+	}
+
 }
