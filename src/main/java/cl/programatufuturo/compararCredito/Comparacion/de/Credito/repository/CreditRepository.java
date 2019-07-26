@@ -45,4 +45,5 @@ public interface CreditRepository extends JpaRepository<CreditEntity, Long>{
 	 * @return
 	 */
 	public CreditEntity findByIntereses(double intereses);
+	
 }

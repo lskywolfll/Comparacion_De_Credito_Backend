@@ -12,11 +12,11 @@ public class User {
 	private Date fecha_de_nacimiento;
 	private String genero;
 	private String correo;
-	private int sueldo;
+	private int sueldo_bruto;
 	
 	public User(){}
 	
-	public User(String nombre,String apellido,String password,String rut,Date fecha_de_nacimiento,String genero,String correo,int sueldo){
+	public User(String nombre,String apellido,String password,String rut,Date fecha_de_nacimiento,String genero,String correo,int sueldo_bruto){
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.password = password;
@@ -24,7 +24,7 @@ public class User {
 		this.fecha_de_nacimiento = fecha_de_nacimiento;
 		this.genero = genero;
 		this.correo = correo;
-		this.sueldo = sueldo;
+		this.sueldo_bruto = sueldo_bruto;
 	}
 
 	public String getNombre() {
@@ -83,19 +83,19 @@ public class User {
 		this.correo = correo;
 	}
 
-	public int getSueldo() {
-		return sueldo;
+	public int getSueldo_bruto() {
+		return sueldo_bruto;
 	}
 
-	public void setSueldo(int sueldo) {
-		this.sueldo = sueldo;
+	public void setSueldo_bruto(int sueldo_bruto) {
+		this.sueldo_bruto = sueldo_bruto;
 	}
 
 	@Override
 	public String toString() {
 		return "User [nombre=" + nombre + ", apellido=" + apellido + ", password=" + password + ", rut=" + rut
 				+ ", fecha_de_nacimiento=" + fecha_de_nacimiento + ", genero=" + genero + ", correo=" + correo
-				+ ", renta=" + sueldo + "]";
+				+ ", sueldo_bruto=" + sueldo_bruto + "]";
 	}
 
 }

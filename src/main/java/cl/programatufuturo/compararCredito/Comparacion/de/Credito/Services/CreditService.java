@@ -53,7 +53,7 @@ public class CreditService {
 	 * @param cuotas
 	 * @return
 	 */
-	public List<CreditEntity> find(@Param("monto") int monto,@Param("cuotas") int cuotas){
+	public List<CreditEntity> find(int monto, int cuotas){
 		return this.repoCredit.find(monto, cuotas);
 	}
 	/**
@@ -64,4 +64,8 @@ public class CreditService {
 	public List<CreditEntity> findByBanco(String banco){
 		return this.repoCredit.findByBanco(banco);
 	}
+	
+//	public CreditEntity simulation(int monto,int plazos,int sueldo, int bancoId) {
+//		return this.repoCredit.simular(monto,plazo,sueldo,bancoId);
+//	}
 }

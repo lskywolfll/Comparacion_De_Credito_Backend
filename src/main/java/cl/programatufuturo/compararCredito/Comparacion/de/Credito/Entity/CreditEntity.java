@@ -19,23 +19,21 @@ public class CreditEntity {
 	private int monto;
 	@Column
 	private int cuotas;
-//	private double intereses;
+	@Column
+	private double intereses;
 	@Column
 	private int plazos;
 	@Column
 	private String banco;
-	@Column
-	private String tipodecredito;
 	
 	public CreditEntity(){}
 	
-	public CreditEntity(int monto, int cuotas, int plazos, String banco, String tipodecredito) {
+	public CreditEntity(int monto, int cuotas, int plazos, String banco) {
 		super();
 		this.monto = monto;
 		this.cuotas = cuotas;
 		this.plazos = plazos;
 		this.banco = banco;
-		this.tipodecredito = tipodecredito;
 	}
 
 	public long getId() {
@@ -78,48 +76,10 @@ public class CreditEntity {
 		this.banco = banco;
 	}
 
-	public String getTipodecredito() {
-		return tipodecredito;
-	}
-
-	public void setTipodecredito(String tipodecredito) {
-		this.tipodecredito = tipodecredito;
-	}
-
 	@Override
 	public String toString() {
 		return "CreditEntity [id=" + id + ", monto=" + monto + ", cuotas=" + cuotas + ", plazos=" + plazos + ", banco="
-				+ banco + ", tipodecredito=" + tipodecredito + "]";
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CreditEntity other = (CreditEntity) obj;
-		if (banco == null) {
-			if (other.banco != null)
-				return false;
-		} else if (!banco.equals(other.banco))
-			return false;
-		if (cuotas != other.cuotas)
-			return false;
-		if (id != other.id)
-			return false;
-		if (monto != other.monto)
-			return false;
-		if (plazos != other.plazos)
-			return false;
-		if (tipodecredito == null) {
-			if (other.tipodecredito != null)
-				return false;
-		} else if (!tipodecredito.equals(other.tipodecredito))
-			return false;
-		return true;
+				+ banco + "]";
 	}
 	
 }

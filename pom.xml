@@ -19,6 +19,7 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+<prop key="hibernate.id.new_generator_mappings">false</prop>
 	<dependencies>
  		<dependency>
  			<groupId>org.springframework.boot</groupId> 
@@ -41,11 +42,7 @@
 			<version>2.7.0</version>
 		</dependency>
 		
-		<dependency>
-    		<groupId>org.hibernate</groupId>
-    		<artifactId>hibernate-entitymanager</artifactId>
-    		<version>5.0.2.Final</version>
-		</dependency>
+		
 
 		<dependency>
 			<groupId>io.springfox</groupId>
