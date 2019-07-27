@@ -18,10 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.UserEntity;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Services.UserService;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.models.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin( origins = "*")
+@Api(tags = "usuario")
 public class UsersController {
 
 	@Autowired
@@ -30,6 +35,9 @@ public class UsersController {
 	// Registro
 
 	@PostMapping( "createUser")
+	@ApiOperation(value = "Crear usuario", notes = "Servicio para crear un nuevo usuario")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuario creado correctamente"),
+			@ApiResponse(code = 400, message = "Solicitud invalida") })
 	public ResponseEntity<UserEntity> create(@RequestBody User user){
 		UserEntity usuario = new UserEntity();
 		
