@@ -2,6 +2,8 @@ package cl.programatufuturo.compararCredito.Comparacion.de.Credito.repository;
 
 import java.util.List;
 
+import javax.persistence.Table;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,6 +13,7 @@ import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.CreditE
 
 
 @Repository
+@Table(name = "credit")
 public interface CreditRepository extends JpaRepository<CreditEntity, Long>{
 	//Metodos para la base de datos
 	/**
