@@ -75,15 +75,24 @@ public class SimulationService {
 	public List<SimulationEntity> findAll(){
 		return this.repoSimulation.findAll();
 	}
-	
+	/**
+	 * Metodo para encontrar una simulacion en base al id
+	 * @param id
+	 * @return
+	 */
 	public SimulationEntity findById(long id) {
 		return this.repoSimulation.findById(id);
 	}
-	
+	/**
+	 * Metodo para eliminar todas las simulaciones creadas
+	 */
 	public void deleteAll(){
 		this.repoSimulation.deleteAll();
 	}
-	
+	/**
+	 * Metodo para eliminar una simulacion con el id
+	 * @param id
+	 */
 	public void delete(long id){
 		this.repoSimulation.deleteById(id);
 	}

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.SimulationEntity;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Services.SimulationService;
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.models.Simulation;
-import cl.programatufuturo.compararCredito.Comparacion.de.Credito.repository.SimulationRepository;
 
 @RestController
 @RequestMapping("api/simulations")
@@ -31,7 +30,7 @@ public class SimulationController {
 		simulation.setMeses(simulacion.getMeses());
 		simulation.setSueldo(simulacion.getSueldo());
 		
-		return new ResponseEntity<SimulationEntity>(this.repoSimulation.create(simulation), HttpStatus.OK);
+		return new ResponseEntity<>(this.repoSimulation.create(simulation), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("delete/{id}")

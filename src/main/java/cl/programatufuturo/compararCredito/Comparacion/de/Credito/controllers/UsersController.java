@@ -87,10 +87,7 @@ public class UsersController {
 		
 		return new ResponseEntity<>(this.repo.login(correo, password),HttpStatus.OK);
 	}
-	/**
-	 * Metodo para eliminar un usuario
-	 * @param identificacion
-	 */
+	
 	@DeleteMapping("{indetificacion}")
 	public void delete(@PathVariable("identificacion") String identificacion) {
 		UserEntity user = this.repo.findByIdentificacion(identificacion);
@@ -98,12 +95,14 @@ public class UsersController {
 			this.repo.delete(user);
 		}
 	}
-	/**
-	 * Metodo para recibir una lista de usuarios
-	 * @return
-	 */
+	
 	@GetMapping("lista")
 	public ResponseEntity<List<UserEntity>> findAll(){
 		return ResponseEntity.ok(this.repo.findAll());
+	}
+	
+	@DeleteMapping("delete/all")
+	public void deleteAll() {
+		this.repo.deleteAll();
 	}
 }
