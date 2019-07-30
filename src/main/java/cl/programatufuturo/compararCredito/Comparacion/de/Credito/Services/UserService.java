@@ -74,11 +74,17 @@ public class UserService {
 		return this.repoUser.findByLogin(correo, password);
 	}
 	/**
-	 * Metodo para recibir una lista de usuarios hola rene te quiero mucho :3
+	 * Metodo para recibir una lista de usuarios (michael ->hola rene te quiero mucho :3), yo tbm
 	 * @return
 	 */
 	public List<UserEntity> findAll(){
 		return this.repoUser.findAll();
 	}
-
+	/**
+	 * Eliminar todos los usuarios para dejar en blanco la bd con los datos, por ahora falta que nosotros hagamos los foreign key(id externos de otra tabla)
+	 */
+	public void deleteAll(){
+		this.repoUser.deleteAll();
+	}
+	
 }

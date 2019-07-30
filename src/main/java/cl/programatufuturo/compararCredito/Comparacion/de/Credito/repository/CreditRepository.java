@@ -37,16 +37,34 @@ public interface CreditRepository extends JpaRepository<CreditEntity, Long>{
 	 */
 	public CreditEntity findByMonto(int monto);
 	/**
+	 * Metodo para tener una lista de creditos con todos los valores
+	 * @param monto
+	 * @return
+	 */
+	public List<CreditEntity> findByAllMonto(int monto);
+	/**
 	 * Metodo para encontrar por la cantidad de plazo para pagar
 	 * @param plazos
 	 * @return
 	 */
 	public CreditEntity findByPlazos(int plazos);
 	/**
+	 * Metodo para encontrar una lista de creditos en base al plazo
+	 * @param plazos
+	 * @return
+	 */
+	public List<CreditEntity> findByAllPlazos(int plazos);
+	/**
 	 * Metodo para encontrar por la cantidad de intereses
 	 * @param intereses
 	 * @return
 	 */
 	public CreditEntity findByIntereses(double intereses);
+	/**
+	 * Metodo para tener una lista de creditos con un intereses dado
+	 * @param intereses
+	 * @return
+	 */
+	public List<CreditEntity> findByAllIntereses(double intereses);
 	
 }

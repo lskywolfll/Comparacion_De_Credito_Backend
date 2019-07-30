@@ -25,7 +25,7 @@ public class CreditoController {
 	
 	//Testear
 	@DeleteMapping("deleteCredit")
-	public int deletecredit(@RequestBody int id) {
+	public long deletecredit(@RequestBody long id) {
 		return id;
 	}
 	

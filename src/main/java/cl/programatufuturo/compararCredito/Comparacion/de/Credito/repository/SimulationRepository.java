@@ -13,21 +13,18 @@ import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.Simulat
 @Table(name = "simulations")
 public interface SimulationRepository extends JpaRepository<SimulationEntity, Long>{
 	/**
-	 * Metodo para poder tener todas las simulaciones
-	 */
-	public List<SimulationEntity> findAll();
-	/**
 	 * Metodo par poder tener una lista de simulaciones con un sueldo establecido
 	 * @param sueldo
 	 * @return
 	 */
-	public List<SimulationEntity> findByListSueldo(int sueldo);
+	public List<SimulationEntity> findBySueldo(int sueldo);
 	/**
 	 * Metodo para poder tener una lista en base al credito querido
 	 * @param credito
 	 * @return
 	 */
-	public List<SimulationEntity> findByListCredito(int credito);
+	public List<SimulationEntity> findByMontoCredito(int montoCredito);
 	//meotodos para encontrar solo una simulacion ej: en relacion al sueldo,credito,plazo
-	public SimulationEntity findByMeses(int meses);
+	public List<SimulationEntity> findByMeses(int meses);
+	public SimulationEntity findById(long id);
 }

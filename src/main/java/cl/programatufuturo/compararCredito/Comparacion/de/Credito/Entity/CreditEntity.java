@@ -5,10 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "credit")
+@NamedQuery(name = "CreditEntity.findByBanco", query = "Select c from CreditEntity c where c.banco = ?1")
+@NamedQuery(name = "CreditEntity.findByAllMonto", query = "Select c from CreditEntity c where c.monto = ?1")
+@NamedQuery(name = "CreditEntity.findByAllPlazos", query = "Select c from CreditEntity c where c.plazos = ?1")
+@NamedQuery(name = "CreditEntity.findByAllIntereses", query = "Select c from CreditEntity c where c.intereses = ?1")
 public class CreditEntity {
 	
 	@Id
