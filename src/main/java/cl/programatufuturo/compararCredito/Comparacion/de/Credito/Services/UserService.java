@@ -68,9 +68,11 @@ public class UserService {
 	 */
 	public UserEntity login(String correo, String password) {
 		UserEntity verificacion = this.repoUser.findByLogin(correo, password);
+		
 		if(null == verificacion) {
-			throw new RuntimeException("error");
+			throw new RuntimeException("Error, esta vacio");
 		}
+		
 		return this.repoUser.findByLogin(correo, password);
 	}
 	/**

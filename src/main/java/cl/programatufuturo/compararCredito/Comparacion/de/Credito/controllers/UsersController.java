@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity.UserEntity;
@@ -77,17 +78,17 @@ public class UsersController {
 	}
 	
 	@PostMapping("login")
-	public ResponseEntity<UserEntity> login(String correo,String password){
-		UserEntity verificador = this.repo.login(correo, password);
+	public ResponseEntity<UserEntity> login(@RequestBody UserEntity user){
+		UserEntity verificador = this.repo.login(user.getCorreo(), user.getPassword());
 		if(verificador == null) {
 			return new ResponseEntity<UserEntity>(HttpStatus.NOT_ACCEPTABLE);
 		}else {
-			System.out.println("Correo:" + correo + "password" + password);
+			System.out.println("Se ha ingresado el usuario: " + verificador.getNombre());
+			return new ResponseEntity<>(this.repo.login(user.getCorreo(), user.getPassword()),HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(this.repo.login(correo, password),HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("{indetificacion}")
 	public void delete(@PathVariable("identificacion") String identificacion) {
 		UserEntity user = this.repo.findByIdentificacion(identificacion);

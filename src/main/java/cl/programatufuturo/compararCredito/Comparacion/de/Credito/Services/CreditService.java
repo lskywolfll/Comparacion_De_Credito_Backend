@@ -64,7 +64,31 @@ public class CreditService {
 	public List<CreditEntity> findByBanco(String banco){
 		return this.repoCredit.findByBanco(banco);
 	}
+	/**
+	 * Metodo para poder obtener un credito en base al id
+	 * @param id
+	 * @return
+	 */
+	public CreditEntity findById(long id){
+		return this.repoCredit.findById(id);
+	}
+	/**
+	 * Metodo para eliminar todos los creditos
+	 */
+	public void deleteAll(){
+		 this.repoCredit.deleteAll();
+	}
+	/**
+	 * Metodo para encontrar todos los creditos
+	 * @return
+	 */
+	public List<CreditEntity> findAll(){
+		return this.repoCredit.findAll();
+	}
 	
+	public List<CreditEntity> findByMontoAndCuotas(int monto,int cuotas){
+		return this.repoCredit.find(monto, cuotas);
+	}
 //	public CreditEntity simulation(int monto,int plazos,int sueldo, int bancoId) {
 //		return this.repoCredit.simular(monto,plazo,sueldo,bancoId);
 //	}

@@ -12,33 +12,42 @@ import javax.persistence.Table;
 @Table(name = "credit")
 @NamedQuery(name = "CreditEntity.findByBanco", query = "Select c from CreditEntity c where c.banco = ?1")
 @NamedQuery(name = "CreditEntity.findByAllMonto", query = "Select c from CreditEntity c where c.monto = ?1")
-@NamedQuery(name = "CreditEntity.findByAllPlazos", query = "Select c from CreditEntity c where c.plazos = ?1")
+@NamedQuery(name = "CreditEntity.findByAllCuotas", query = "Select c from CreditEntity c where c.cuotas = ?1")
 @NamedQuery(name = "CreditEntity.findByAllIntereses", query = "Select c from CreditEntity c where c.intereses = ?1")
+@NamedQuery(name = "CreditEntity.findById", query = "Select c from CreditEntity c where c.id = ?1")
 public class CreditEntity {
-	
+
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column
-	private int monto;
+	private String banco;
 	@Column
-	private int cuotas;
+	private int monto;
 	@Column
 	private double intereses;
 	@Column
-	private int plazos;
+	private double cae;
 	@Column
-	private String banco;
-	
-	public CreditEntity(){}
-	
-	public CreditEntity(int monto, int cuotas, int plazos, String banco) {
+	private int cuotas;
+	@Column
+	private int valor_cuota;
+	@Column
+	private int total;
+
+	public CreditEntity() {}
+
+	public CreditEntity(long id,String banco,int monto,double intereses,double cae,int cuotas,int valor_cuota) {
 		super();
-		this.monto = monto;
-		this.cuotas = cuotas;
-		this.plazos = plazos;
+		this.id = id;
 		this.banco = banco;
+		this.monto = monto;
+		this.intereses = intereses;
+		this.cae = cae;
+		this.cuotas = cuotas;
+		this.valor_cuota = 0;
+		this.total = 0;
 	}
 
 	public long getId() {
@@ -65,12 +74,12 @@ public class CreditEntity {
 		this.cuotas = cuotas;
 	}
 
-	public int getPlazos() {
-		return plazos;
+	public double getIntereses() {
+		return intereses;
 	}
 
-	public void setPlazos(int plazos) {
-		this.plazos = plazos;
+	public void setIntereses(double intereses) {
+		this.intereses = intereses;
 	}
 
 	public String getBanco() {
@@ -81,10 +90,34 @@ public class CreditEntity {
 		this.banco = banco;
 	}
 
+	public int getValor_cuota() {
+		return valor_cuota;
+	}
+
+	public void setValor_cuota(int valor_cuota) {
+		this.valor_cuota = valor_cuota;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	public double getCae() {
+		return cae;
+	}
+
+	public void setCae(double cae) {
+		this.cae = cae;
+	}
+
 	@Override
 	public String toString() {
-		return "CreditEntity [id=" + id + ", monto=" + monto + ", cuotas=" + cuotas + ", plazos=" + plazos + ", banco="
-				+ banco + "]";
+		return "CreditEntity [id=" + id + ", monto=" + monto + ", cuotas=" + cuotas + ", intereses=" + intereses
+				+ ", banco=" + banco + ", valorCuota=" + valor_cuota + ", total=" + total + ", cae=" + cae + "]";
 	}
 	
 }
