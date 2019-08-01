@@ -89,9 +89,10 @@ public class UsersController {
 		
 	}
 
-	@DeleteMapping("{indetificacion}")
+	@DeleteMapping("{identificacion}")
 	public void delete(@PathVariable("identificacion") String identificacion) {
 		UserEntity user = this.repo.findByIdentificacion(identificacion);
+		System.out.println(user);
 		if(user != null) {
 			this.repo.delete(user);
 		}
