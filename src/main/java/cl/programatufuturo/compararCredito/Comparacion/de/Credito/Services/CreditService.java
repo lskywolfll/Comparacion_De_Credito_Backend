@@ -57,7 +57,7 @@ public class CreditService {
 		return this.repoCredit.find(monto, cuotas);
 	}
 	/**
-	 * Metodo para encontar una lista de creditos con el nombre del banco
+	 * Metodo para que me retorne una lista de credito con el nombre del banco
 	 * @param banco
 	 * @return
 	 */
@@ -85,10 +85,41 @@ public class CreditService {
 	public List<CreditEntity> findAll(){
 		return this.repoCredit.findAll();
 	}
-	
+	/**
+	 * Metodo para encontrar un credito con un monto dado y con una cantidad de cuotas
+	 * @param monto
+	 * @param cuotas
+	 * @return
+	 */
 	public List<CreditEntity> findByMontoAndCuotas(int monto,int cuotas){
 		return this.repoCredit.find(monto, cuotas);
 	}
+	/**
+	 * Metodo para encontrar un credito con un monto dado y me devuelve todos los creditos con ese monto
+	 * @param monto
+	 * @return
+	 */
+	public List<CreditEntity> findByMonto(int monto) {
+		return this.repoCredit.findByAllMonto(monto);
+	}
+	/**
+	 * Metodo para encontrar una lista de creditos con esa cantidad de cuotas
+	 * @param cuotas
+	 * @return
+	 */
+	public List<CreditEntity> findByCuotas(int cuotas){
+		return this.repoCredit.findByAllCuotas(cuotas);
+	}
+	/**
+	 * Metodo para encontrar una lista de creditos con una tasa de interes dado
+	 * @param intereses
+	 * @return
+	 */
+	public List<CreditEntity> findByAllIntereses(double intereses){
+		return this.repoCredit.findByAllIntereses(intereses);
+	}
+	
+	
 //	public CreditEntity simulation(int monto,int plazos,int sueldo, int bancoId) {
 //		return this.repoCredit.simular(monto,plazo,sueldo,bancoId);
 //	}
