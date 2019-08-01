@@ -38,7 +38,7 @@ public class CreditEntity {
 
 	public CreditEntity() {}
 
-	public CreditEntity(long id,String banco,int monto,double intereses,double cae,int cuotas,int valor_cuota) {
+	public CreditEntity(long id,String banco,int monto,double intereses,double cae,int cuotas) {
 		super();
 		this.id = id;
 		this.banco = banco;
@@ -46,8 +46,8 @@ public class CreditEntity {
 		this.intereses = intereses;
 		this.cae = cae;
 		this.cuotas = cuotas;
-		this.valor_cuota = 0;
-		this.total = 0;
+		this.valor_cuota = (int) ((this.monto - (( (this.intereses + Math.pow(1 + this.intereses,this.cuotas)) / (Math.pow(1 + this.intereses, this.cuotas) - 1) ))) / 4.4);
+		this.total = this.valor_cuota * this.cuotas;
 	}
 
 	public long getId() {

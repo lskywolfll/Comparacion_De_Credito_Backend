@@ -89,4 +89,7 @@ public class UserService {
 		this.repoUser.deleteAll();
 	}
 	
+	public UserEntity findByCorreoAndPassword(String correo,String password){
+		return this.repoUser.findByCorreoAndPassword(correo, password);
+	}
 }

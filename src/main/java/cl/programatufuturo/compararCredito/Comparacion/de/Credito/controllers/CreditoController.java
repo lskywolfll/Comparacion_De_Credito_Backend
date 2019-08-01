@@ -31,14 +31,7 @@ public class CreditoController {
 
 	@PostMapping("create")
 	public ResponseEntity<CreditEntity> create(@RequestBody Credit credit){
-		CreditEntity credito = new CreditEntity();
-		
-		credito.setBanco(credit.getBanco());
-		credito.setMonto(credit.getMonto());
-		credito.setIntereses(credit.getIntereses());
-		credito.setCae(credit.getCae());
-		credito.setValor_cuota(credit.getValor_cuota());
-		credito.setTotal(credit.getTotal());
+		CreditEntity credito = new CreditEntity(credit.getId(),credit.getBanco(), credit.getMonto(), credit.getIntereses(), credit.getCae(), credit.getCuotas());
 		
 		System.out.println(credito);
 		return new ResponseEntity<>(this.service.create(credito), HttpStatus.CREATED);

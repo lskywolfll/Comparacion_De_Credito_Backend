@@ -40,4 +40,11 @@ public interface UserRepository extends JpaRepository<UserEntity, Long>{
 	 * @return
 	 */
 	public UserEntity findByLogin(String correo, String password);
+	/**
+	 * Metodo para recibir un usuario en base al correo y password, para establecer la conexion permanecida del usuario logeado en front
+	 * @param correo
+	 * @param password
+	 * @return
+	 */
+	public UserEntity findByCorreoAndPassword(String correo,String password);
 }

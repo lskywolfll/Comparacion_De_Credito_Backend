@@ -106,4 +106,17 @@ public class UsersController {
 	public void deleteAll() {
 		this.repo.deleteAll();
 	}
+	
+	@GetMapping("logged/{correo}/{password}")
+	public ResponseEntity<UserEntity> loged(@PathVariable("correo") String correo,@PathVariable("password") String password){
+		UserEntity user = this.repo.findByCorreoAndPassword(correo, password);
+		
+		if(user == null) {
+			return new ResponseEntity<UserEntity>(HttpStatus.NOT_ACCEPTABLE);
+		}else {
+			return new ResponseEntity<>(this.repo.findByCorreoAndPassword(correo, password), HttpStatus.OK);
+		}
+	}
+	
+	
 }
