@@ -14,35 +14,26 @@ public class ReportesEntity {
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long identificador;
+	private long id;
 	@Column
 	private String tipodereporte;
-	@Column
-	private int id;
 	@Column
 	private String comentario;
 	
 	public ReportesEntity() {}
 
-	public ReportesEntity(String tipodereporte, int id, String comentario) {
-		this.tipodereporte = tipodereporte;
+	public ReportesEntity(long id, String tipodereporte, String comentario) {
+		super();
 		this.id = id;
+		this.tipodereporte = tipodereporte;
 		this.comentario = comentario;
 	}
 
-	public long getIdentificador() {
-		return identificador;
-	}
-
-	public void setIdentificador(long identificador) {
-		this.identificador = identificador;
-	}
-
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -52,14 +43,6 @@ public class ReportesEntity {
 
 	public void setTipodereporte(String tipodereporte) {
 		this.tipodereporte = tipodereporte;
-	}
-
-	public int getid() {
-		return id;
-	}
-
-	public void setid(int id) {
-		this.id = id;
 	}
 
 	public String getComentario() {
@@ -72,8 +55,7 @@ public class ReportesEntity {
 
 	@Override
 	public String toString() {
-		return "ReportesEntity [identificador=" + identificador + ", tipodereporte=" + tipodereporte + ", id=" + id
-				+ ", comentario=" + comentario + "]";
+		return "ReportesEntity [id=" + id + ", tipodereporte=" + tipodereporte + ", comentario=" + comentario + "]";
 	}
 
 }

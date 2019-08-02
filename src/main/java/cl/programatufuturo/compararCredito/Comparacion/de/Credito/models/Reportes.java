@@ -2,32 +2,23 @@ package cl.programatufuturo.compararCredito.Comparacion.de.Credito.models;
 
 public class Reportes {
 	
-	private String tipodereporte;
-	private int id;
+	private String tipo_de_reporte;
 	private String comentario;
 	
 	public Reportes(){}
-	
-	public Reportes(String tipodereportes,int id,String comentario) {
-		this.tipodereporte = tipodereportes;
-		this.id = id;
+
+	public Reportes(String tipo_de_reporte, String comentario) {
+		super();
+		this.tipo_de_reporte = tipo_de_reporte;
 		this.comentario = comentario;
 	}
 
-	public String getTipodereporte() {
-		return tipodereporte;
+	public String getTipo_de_reporte() {
+		return tipo_de_reporte;
 	}
 
-	public void setTipodereporte(String tipodereporte) {
-		this.tipodereporte = tipodereporte;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setTipo_de_reporte(String tipo_de_reporte) {
+		this.tipo_de_reporte = tipo_de_reporte;
 	}
 
 	public String getComentario() {
@@ -40,7 +31,8 @@ public class Reportes {
 
 	@Override
 	public String toString() {
-		return "Reportes [tipodereporte=" + tipodereporte + ", id=" + id + ", comentario=" + comentario + "]";
+		return "Reportes [tipo_de_reporte=" + tipo_de_reporte + ", comentario=" + comentario + "]";
 	}
+	
 	
 }

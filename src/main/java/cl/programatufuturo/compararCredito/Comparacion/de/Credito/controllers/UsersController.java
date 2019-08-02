@@ -78,7 +78,7 @@ public class UsersController {
 	}
 	
 	@PostMapping("login")
-	public ResponseEntity<UserEntity> login(@RequestBody UserEntity user){
+	public ResponseEntity<UserEntity> login(@RequestBody User user){
 		UserEntity verificador = this.repo.login(user.getCorreo(), user.getPassword());
 		if(verificador == null) {
 			return new ResponseEntity<UserEntity>(HttpStatus.NOT_ACCEPTABLE);
@@ -118,6 +118,5 @@ public class UsersController {
 			return new ResponseEntity<>(this.repo.findByCorreoAndPassword(correo, password), HttpStatus.OK);
 		}
 	}
-	
 	
 }
