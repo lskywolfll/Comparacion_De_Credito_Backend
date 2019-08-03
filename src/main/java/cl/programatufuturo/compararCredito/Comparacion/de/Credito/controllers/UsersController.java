@@ -40,19 +40,26 @@ public class UsersController {
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuario creado correctamente"),
 			@ApiResponse(code = 400, message = "Solicitud invalida") })
 	public ResponseEntity<UserEntity> create(@RequestBody User user){
-		UserEntity usuario = new UserEntity();
+		UserEntity verificador = this.repo.findByIdentificacion(user.getRut());
 		
-		usuario.setNombre(user.getNombre());
-		usuario.setApellido(user.getApellido());
-		usuario.setPassword(user.getPassword());
-		usuario.setRut(user.getRut());
-		usuario.setFecha_de_nacimiento(user.getFecha_de_nacimiento());
-		usuario.setGenero(user.getGenero());
-		usuario.setCorreo(user.getCorreo());
-		usuario.setSueldo_bruto(user.getSueldo_bruto());
-		
-		System.out.println(usuario);
-		return new ResponseEntity<UserEntity>(this.repo.create(usuario), HttpStatus.CREATED);		
+		if(verificador == null){
+			UserEntity usuario = new UserEntity();
+			
+			usuario.setNombre(user.getNombre());
+			usuario.setApellido(user.getApellido());
+			usuario.setPassword(user.getPassword());
+			usuario.setRut(user.getRut());
+			usuario.setFecha_de_nacimiento(user.getFecha_de_nacimiento());
+			usuario.setGenero(user.getGenero());
+			usuario.setCorreo(user.getCorreo());
+			usuario.setSueldo_bruto(user.getSueldo_bruto());
+			
+			System.out.println(usuario);
+			return new ResponseEntity<UserEntity>(this.repo.create(usuario), HttpStatus.CREATED);	
+		}else {
+			System.out.println("Esta registrado el usuario");
+			return new ResponseEntity<UserEntity>(HttpStatus.IM_USED);
+		}
 	}
 	
 	//testear

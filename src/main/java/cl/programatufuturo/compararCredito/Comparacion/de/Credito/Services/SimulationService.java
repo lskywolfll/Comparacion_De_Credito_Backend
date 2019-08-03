@@ -44,29 +44,20 @@ public class SimulationService {
 		this.repoSimulation.delete(simulacion);
 	}
 	/**
-	 * Metodo para encontrar una lista con un sueldo especifico
-	 * @param sueldo
-	 * @return
-	 */
-	//Recibimiento de datos que no afectan a la base de datos
-	public List<SimulationEntity> findBySueldo(int sueldo){
-		return this.repoSimulation.findBySueldo(sueldo);
-	}
-	/**
 	 * Metodo para encontrar una lista de simulaciones en base al credito
 	 * @param montoCredito
 	 * @return
 	 */
-	public List<SimulationEntity> findByMontoCredito(int montoCredito){
-		return this.repoSimulation.findByMontoCredito(montoCredito);
+	public List<SimulationEntity> findByMonto(int monto){
+		return this.repoSimulation.findByMonto(monto);
 	}
 	/**
 	 * Metodo para encontrar una lista de simulaciones en base a los meses
 	 * @param meses
 	 * @return
 	 */
-	public List<SimulationEntity> findByMeses(int meses){
-		return this.repoSimulation.findByMeses(meses);
+	public List<SimulationEntity> findByCuotas(int cuotas){
+		return this.repoSimulation.findByCuotas(cuotas);
 	}
 	/**
 	 * Metodo para mostrar todos los resultados

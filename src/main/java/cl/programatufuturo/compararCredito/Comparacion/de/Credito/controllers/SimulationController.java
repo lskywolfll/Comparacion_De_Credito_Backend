@@ -29,9 +29,8 @@ public class SimulationController {
 	public ResponseEntity<SimulationEntity> create(@RequestBody Simulation simulacion){
 		SimulationEntity simulation = new SimulationEntity();
 		
-		simulation.setMontoCredito(simulacion.getMontoCredito());
-		simulation.setMeses(simulacion.getMeses());
-		simulation.setSueldo(simulacion.getSueldo());
+		simulation.setMonto(simulacion.getMonto());
+		simulacion.setCuotas(simulacion.getCuotas());
 		
 		return new ResponseEntity<>(this.repoSimulation.create(simulation), HttpStatus.OK);
 	}
@@ -48,9 +47,8 @@ public class SimulationController {
 		if(simulation == null) {
 			return new ResponseEntity<SimulationEntity>(HttpStatus.NOT_FOUND);
 		}else {
-			simulation.setMontoCredito(simulacion.getMontoCredito());
-			simulation.setMeses(simulacion.getMeses());
-			simulation.setSueldo(simulacion.getSueldo());
+			simulation.setMonto(simulacion.getMonto());
+			simulation.setCuotas(simulacion.getCuotas());
 		}
 		
 		return new ResponseEntity<>(this.repoSimulation.update(simulation), HttpStatus.OK);

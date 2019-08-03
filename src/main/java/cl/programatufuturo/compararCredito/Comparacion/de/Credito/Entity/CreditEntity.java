@@ -1,10 +1,16 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.Entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -20,7 +26,7 @@ public class CreditEntity {
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long id_credit;
 	@Column
 	private String banco;
 	@Column
@@ -35,12 +41,17 @@ public class CreditEntity {
 	private int valor_cuota;
 	@Column
 	private int total;
+	
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = CreditEntity.class)
+	@JoinTable(name = "simulations",joinColumns = @JoinColumn(name ="id_simulation"),
+	inverseJoinColumns = @JoinColumn(name = "id_credito"))
+	private List<CreditEntity> credit;
 
 	public CreditEntity() {}
 
 	public CreditEntity(long id,String banco,int monto,double intereses,double cae,int cuotas) {
 		super();
-		this.id = id;
+		this.id_credit = id;
 		this.banco = banco;
 		this.monto = monto;
 		this.intereses = intereses;
@@ -51,11 +62,11 @@ public class CreditEntity {
 	}
 
 	public long getId() {
-		return id;
+		return id_credit;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long id_credit) {
+		this.id_credit = id_credit;
 	}
 
 	public int getMonto() {
@@ -116,7 +127,7 @@ public class CreditEntity {
 
 	@Override
 	public String toString() {
-		return "CreditEntity [id=" + id + ", monto=" + monto + ", cuotas=" + cuotas + ", intereses=" + intereses
+		return "CreditEntity [id=" + id_credit + ", monto=" + monto + ", cuotas=" + cuotas + ", intereses=" + intereses
 				+ ", banco=" + banco + ", valorCuota=" + valor_cuota + ", total=" + total + ", cae=" + cae + "]";
 	}
 	
