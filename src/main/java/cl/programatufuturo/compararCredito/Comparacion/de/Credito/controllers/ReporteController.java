@@ -1,5 +1,6 @@
 package cl.programatufuturo.compararCredito.Comparacion.de.Credito.controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import cl.programatufuturo.compararCredito.Comparacion.de.Credito.models.Reporte
 
 @RestController
 @RequestMapping("/api/reportes")
+@CrossOrigin( origins = "*")
 public class ReporteController {
 	
 	//Crear reportes => tipo de reporte,ID,Comentario
