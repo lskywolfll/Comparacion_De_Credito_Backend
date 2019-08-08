@@ -57,7 +57,7 @@ public class CreditEntity {
 		this.intereses = intereses;
 		this.cae = cae;
 		this.cuotas = cuotas;
-		this.valor_cuota = (int) ((this.monto - (( (this.intereses + Math.pow(1 + this.intereses,this.cuotas)) / (Math.pow(1 + this.intereses, this.cuotas) - 1) ))) / 4.4);
+		this.valor_cuota = Math.abs((int) ((this.monto - (( (this.intereses + Math.pow(1 + this.intereses,this.cuotas)) / (Math.pow(1 + this.intereses, this.cuotas) - 1) ))) / 4.4));
 		this.total = this.valor_cuota * this.cuotas;
 	}
 

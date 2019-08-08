@@ -69,11 +69,27 @@ public class UserService {
 	public UserEntity login(String correo, String password) {
 		UserEntity verificacion = this.repoUser.findByLogin(correo, password);
 		
-		if(null == verificacion) {
+		if(verificacion == null) {
 			throw new RuntimeException("Error, esta vacio");
 		}
 		
 		return this.repoUser.findByLogin(correo, password);
+	}
+	/**
+	 * Metodo para ingresar al login de manera administrativa
+	 * @param nombre
+	 * @param password
+	 * @return
+	 */
+	public UserEntity loginAdministracion(String nombre,String password){
+		UserEntity login = this.repoUser.findByNombreAndPassword(nombre, password);
+		System.out.println("nombre:" + nombre + " password:" + password);
+		
+		if(login == null){
+			throw new RuntimeException("Error, esta vacio");
+		}
+		
+		return this.repoUser.findByNombreAndPassword(nombre, password);
 	}
 	/**
 	 * Metodo para recibir una lista de usuarios (michael ->hola rene te quiero mucho :3), yo tbm

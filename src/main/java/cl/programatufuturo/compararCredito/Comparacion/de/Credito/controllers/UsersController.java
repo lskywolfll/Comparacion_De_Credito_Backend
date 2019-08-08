@@ -95,6 +95,24 @@ public class UsersController {
 		}
 		
 	}
+	
+	@PostMapping("login/administracion")
+	public ResponseEntity<UserEntity> loginAdministracion(@RequestBody User user){
+//		UserEntity prueba = new UserEntity();
+//		prueba.setNombre("admin");
+//		prueba.setPassword("123");
+//		this.repo.create(prueba);
+		
+		UserEntity verificador = this.repo.loginAdministracion(user.getNombre(), user.getPassword());
+		System.out.println("nombre: " + user.getNombre() + " password: " + user.getPassword());
+		
+		if(verificador == null && user.getNombre() == null && user.getPassword() == null) {
+			return new ResponseEntity<UserEntity>(HttpStatus.NOT_ACCEPTABLE);
+		}else {
+			System.out.println("Se ha ingresado el usuario: " + user.getNombre());
+			return new ResponseEntity<UserEntity>(this.repo.loginAdministracion(user.getNombre(), user.getPassword()), HttpStatus.OK);
+		}
+	}
 
 	@DeleteMapping("{identificacion}")
 	public void delete(@PathVariable("identificacion") String identificacion) {

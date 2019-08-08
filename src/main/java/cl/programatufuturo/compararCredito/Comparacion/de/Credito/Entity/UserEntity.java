@@ -22,6 +22,7 @@ import javax.persistence.TemporalType;
 @NamedQuery(name = "UserEntity.findByIdentificacion", query = "Select u from UserEntity u where u.rut = ?1")
 @NamedQuery(name = "UserEntity.findByLogin", query = "Select u from UserEntity u where u.correo = ?1 and u.password=?2")
 @NamedQuery(name = "UserEntity.findByListNombre", query = "Select u from UserEntity u where u.nombre = ?1")
+@NamedQuery(name = "UserEntity.findByNombreAndPassword", query = "Select u from UserEntity u where u.nombre = ?1 and u.password = ?2")
 public class UserEntity {
 	@Id
 	@Column

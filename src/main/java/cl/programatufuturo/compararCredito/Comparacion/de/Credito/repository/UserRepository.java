@@ -47,4 +47,11 @@ public interface UserRepository extends JpaRepository<UserEntity, Long>{
 	 * @return
 	 */
 	public UserEntity findByCorreoAndPassword(String correo,String password);
+	/**
+	 * Metodo para recibir a los usuarios administrativos
+	 * @param nombre
+	 * @param password
+	 * @return
+	 */
+	public UserEntity findByNombreAndPassword(String nombre,String password);
 }
